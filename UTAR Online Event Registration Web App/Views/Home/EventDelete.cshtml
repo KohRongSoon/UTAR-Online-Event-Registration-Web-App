@@ -1,0 +1,111 @@
+﻿@model UTAR_Online_Event_Registration_Web_App.Models.EventDataModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container" id="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="EventViewStaff">UTAR_Online_Event_Registration_Web_App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EventViewStaff">Event List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EventCreate">Create Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Log Out</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+    <h1>Event Details</h1>
+
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Event Name
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.eventName)
+            </dd>
+            <dt class="col-sm-2">
+                Event Desciption
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.eventDescription)
+            </dd>
+            <dt class="col-sm-2">
+                Event Date
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.eventDate)
+            </dd>
+            <dt class="col-sm-2">
+                Event Price
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.eventPrice)
+            </dd>
+            <dt class="col-sm-2">
+                Ticket Quantity
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.eventTicQty)
+            </dd>
+        </dl>
+        <form asp-action="EventDelete">
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+    <div>
+        <a asp-action="EventViewU">Back to List</a>
+    </div>
+</body>
+<style>
+    input[type=submit] {
+        width: 50%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    body {
+        background: #C9D6FF; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to top, #E2E2E2, #C9D6FF); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        font-size:large;
+    }
+
+    #container {
+        padding: 15px 15px;
+        font-size: x-large;
+    }
+
+    li.nav-item:hover {
+        background-color: #ddd;
+    }
+</style>

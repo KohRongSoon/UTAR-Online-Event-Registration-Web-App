@@ -1,0 +1,66 @@
+﻿@model IEnumerable<UTAR_Online_Event_Registration_Web_App.Models.EventDataModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eventDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eventDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eventPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eventTicQty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.userId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventTicQty)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.eventID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.eventID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.eventID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

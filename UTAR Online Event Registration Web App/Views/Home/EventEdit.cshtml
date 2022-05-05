@@ -1,0 +1,125 @@
+﻿@model UTAR_Online_Event_Registration_Web_App.Models.EventDataModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container" id="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="EventViewStaff">UTAR_Online_Event_Registration_Web_App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EventViewStaff">Event List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EventCreate">Create Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Log Out</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+    <h1>Edit</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="EventEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="eventID" />
+                <input type="hidden" asp-for="userId" />
+                <div class="form-group">
+                    <label asp-for="eventName" class="control-label">Event Name</label>
+                    <input asp-for="eventName" class="form-control" />
+                    <span asp-validation-for="eventName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="eventDescription" class="control-label">Event Description</label>
+                    <textarea asp-for="eventDescription" class="form-control"></textarea>
+                    <span asp-validation-for="eventDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="eventDate" class="control-label">Event Date</label>
+                    <input asp-for="eventDate" class="form-control" />
+                    <span asp-validation-for="eventDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="eventPrice" class="control-label">Event Price</label>
+                    <input asp-for="eventPrice" class="form-control" />
+                    <span asp-validation-for="eventPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="eventTicQty" class="control-label">Ticket Quantity</label>
+                    <input asp-for="eventTicQty" class="form-control" />
+                    <span asp-validation-for="eventTicQty" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="EventViewStaff">Back to List</a>
+    </div>
+</body>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<style>
+    body {
+        background: #C9D6FF; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to top, #E2E2E2, #C9D6FF); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    #container {
+        padding: 15px 15px;
+        font-size: x-large;
+    }
+
+    li.nav-item:hover {
+        background-color: #ddd;
+    }
+
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+</style>

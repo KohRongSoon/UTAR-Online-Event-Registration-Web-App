@@ -1,0 +1,60 @@
+﻿@model UTAR_Online_Event_Registration_Web_App.Models.EventDataModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>eventDataModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="eventID" />
+            <div class="form-group">
+                <label asp-for="userId" class="control-label"></label>
+                <input asp-for="userId" class="form-control" />
+                <span asp-validation-for="userId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eventName" class="control-label"></label>
+                <input asp-for="eventName" class="form-control" />
+                <span asp-validation-for="eventName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eventDescription" class="control-label"></label>
+                <input asp-for="eventDescription" class="form-control" />
+                <span asp-validation-for="eventDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eventDate" class="control-label"></label>
+                <input asp-for="eventDate" class="form-control" />
+                <span asp-validation-for="eventDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eventPrice" class="control-label"></label>
+                <input asp-for="eventPrice" class="form-control" />
+                <span asp-validation-for="eventPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eventTicQty" class="control-label"></label>
+                <input asp-for="eventTicQty" class="form-control" />
+                <span asp-validation-for="eventTicQty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

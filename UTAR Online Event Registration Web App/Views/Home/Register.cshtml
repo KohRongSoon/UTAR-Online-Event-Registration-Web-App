@@ -1,0 +1,90 @@
+﻿@model UTAR_Online_Event_Registration_Web_App.Models.UserDataModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<body>
+    <h2>Sign Up New Account</h2>
+
+    <form asp-action="Register">
+        <div class="form-horizontal">
+            <h4>User Information:</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="userID" />
+            <div class="form-group">
+                <label asp-for="name" class="col-md-2 control-label">Name</label>
+                <div class="col-md-10">
+                    <input asp-for="name" class="form-control" placeholder="John Cena"/>
+                    <span asp-validation-for="name" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="col-md-2 control-label">Email</label>
+                <div class="col-md-10">
+                    <input asp-for="email" class="form-control" type="email" placeholder="xxx@gmail.com"/>
+                    <span asp-validation-for="email" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="col-md-2 control-label">Password</label>
+                <div class="col-md-10">
+                    <input asp-for="password" class="form-control"  type="password"/>
+                    <span asp-validation-for="password" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="phonum" class="col-md-2 control-label">Phone Number</label>
+                <div class="col-md-10">
+                    <input asp-for="phonum" class="form-control" placeholder="01110783638"/>
+                    <span asp-validation-for="phonum" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Sign Up" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div>
+        <a asp-action="Login">Back to Previous Page</a>
+    </div>
+</body>
+@section scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<style>
+    body {
+        padding-top: 100px;
+        background: #FFEFBA; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        font-size: large;
+    }
+
+    a{
+        font-size:larger;
+        color:blue;
+    }
+    input[type=submit] {
+        width: 30%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+    input{
+        padding-right:100px;
+    }
+</style>

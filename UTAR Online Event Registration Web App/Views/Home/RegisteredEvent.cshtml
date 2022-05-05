@@ -1,0 +1,101 @@
+﻿@model IEnumerable<UTAR_Online_Event_Registration_Web_App.Models.TicketDataModel>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container" id="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="EventViewU">UTAR_Online_Event_Registration_Web_App</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EventViewU">Event List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="RegisteredEvent">Registered Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Log Out</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <body>
+        <table class="table" id="table">
+            <tr>
+                <th>     
+                    Invoice Number
+                </th>
+                <th>
+                    Event ID
+                </th>
+                <th>  
+                    Payment Date
+                </th>
+                <th>
+                    Payment Type
+                </th>
+                
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.invoice_num)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.eventId)
+                    </td>
+                    <td>
+                        @Convert.ToDateTime(item.paymentDate).ToString("dddd, dd/MM/yyyy h:mm tt")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.paymentType)
+                    </td>
+                </tr>
+            }
+        </table>
+    </body>
+<style>
+    body {
+        background: #ADA996; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to top, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+
+    #container {
+        padding: 15px 15px;
+        font-size: x-large;
+    }
+
+    li.nav-item:hover {
+        background-color: #ddd;
+    }
+    #table {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #table td, #table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            font-size: large;
+        }
+
+
+        #table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #8db6f7;
+            color: white;
+        }
+
+</style>
